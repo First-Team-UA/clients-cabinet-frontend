@@ -1,0 +1,33 @@
+
+  {
+    "sidebar": {
+
+      "dashboard": "Dashboard",
+      "profile": "Profile",
+      "Channels": "Channels",
+      "contacts": "Contacts",
+      "test": "Test",
+      "logout": "Logout"
+
+    },
+    "header": {
+  
+    },
+    "channels": {
+  
+    },
+    "contact": {
+  
+    },
+    "dashboard": {
+  
+    },
+    "profile": {
+  
+    },
+    "test": {
+       "test": "TestPage"
+    }
+  
+    }
+    
