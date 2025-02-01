@@ -77,3 +77,85 @@
 - TS
 - ...
 
+# 🎨 Використання Styled-components
+
+Styled-components — це бібліотека для стилізації React-компонентів за допомогою шаблонних літералів.
+
+
+## 🔹 Основи використання
+
+### 1️⃣ Створення стилізованого компонента
+```jsx
+import styled from "styled-components";
+
+const Button = styled.button`
+  background-color: #007bff;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #0056b3;
+  }
+`;
+
+export default function App() {
+  return <Button>Натисни мене</Button>;
+}
+```
+
+### 2️⃣ Використання пропсів у стилях
+
+```jsx
+const Button = styled.button`
+  background-color: ${(props) => (props.primary ? "#007bff" : "#ccc")};
+  color: ${(props) => (props.primary ? "white" : "black")};
+  padding: 10px 20px;
+`;
+
+export default function App() {
+  return (
+    <>
+      <Button primary>Головна кнопка</Button>
+      <Button>Звичайна кнопка</Button>
+    </>
+  );
+}
+```
+
+### 3️⃣ Наслідування стилів
+```jsx
+const PrimaryButton = styled(Button)`
+  font-weight: bold;
+  font-size: 18px;
+`;
+```
+
+### 4️⃣ Використання теми (ThemeProvider)
+```jsx
+import { ThemeProvider } from "styled-components";
+
+const theme = {
+  colors: {
+    primary: "#007bff",
+    secondary: "#6c757d",
+  },
+};
+
+const Button = styled.button`
+  background-color: ${(props) => props.theme.colors.primary};
+  color: white;
+`;
+
+export default function App() {
+  return (
+    <ThemeProvider theme={theme}>
+      <Button>Тематична кнопка</Button>
+    </ThemeProvider>
+  );
+}
+```
+
+---
