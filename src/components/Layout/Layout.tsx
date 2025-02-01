@@ -17,11 +17,11 @@ const Layout = () => {
         <h2 className="logo">VseTV</h2>
         <nav>
           <ul>
-            <li><Link to="/dashboard">{t("dashboard")}</Link></li>
-            <li><Link to="/profile">{t("profile")}</Link></li>
-            <li><Link to="/tv-channels">{t("tvChannels")}</Link></li>
-            <li><Link to="/contacts">{t("contacts")}</Link></li>
-            <li><Link to="/test">{t("test")}</Link></li>
+            <li><Link to="/dashboard">{t("sidebar.dashboard")}</Link></li>
+            <li><Link to="/profile">{t("sidebar.profile")}</Link></li>
+            <li><Link to="/tv-channels">{t("sidebar.Channels")}</Link></li>
+            <li><Link to="/contacts">{t("sidebar.contacts")}</Link></li>
+            <li><Link to="/test">{t("sidebar.test")}</Link></li>
           </ul>
         </nav>
 

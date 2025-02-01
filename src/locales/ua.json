@@ -1,0 +1,30 @@
+{
+  "sidebar": {
+    "dashboard": "Панель",
+    "profile": "Профіль",
+    "Channels": "Телеканали",
+    "contacts": "Контакти",
+    "test": "Тест",
+    "logout": "Вийти"
+  },
+  "header": {
+
+  },
+  "channels": {
+
+  },
+  "contact": {
+
+  },
+  "dashboard": {
+
+  },
+  "profile": {
+
+  },
+  "test": {
+     "test": "Тестова сторінка"
+  }
+
+  }
+  
