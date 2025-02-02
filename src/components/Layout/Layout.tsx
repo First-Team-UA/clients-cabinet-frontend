@@ -1,51 +1,73 @@
-import { Link, Outlet } from "react-router-dom";
+import React from "react";
+import { Outlet } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import "./Layout.css"; 
-import "../../language/i18n"
+import {
+  LayoutContainer,
+  Sidebar,
+  Logo,
+  Nav,
+  NavList,
+  NavItem,
+  NavLink,
+  LogoutButton,
+  MainContent,
+  Header,
+  Main,
+  LanguageSwitcher,
+} from "./Layout.styles";
 
 const Layout = () => {
   const { t, i18n } = useTranslation();
 
-  const handleLanguageChange = (event: { target: { value: string | undefined; }; }) => {
-    i18n.changeLanguage(event.target.value); 
+  const handleLanguageChange = (
+    event: React.ChangeEvent<HTMLSelectElement>
+  ) => {
+    i18n.changeLanguage(event.target.value);
   };
 
   return (
-    <div className="layout">
-        {/* in the future, a new component (sidebar) */}
-      <aside className="sidebar">
-        <h2 className="logo">VseTV</h2>
-        <nav>
-          <ul>
-            <li><Link to="/dashboard">{t("sidebar.dashboard")}</Link></li>
-            <li><Link to="/profile">{t("sidebar.profile")}</Link></li>
-            <li><Link to="/tv-channels">{t("sidebar.Channels")}</Link></li>
-            <li><Link to="/contacts">{t("sidebar.contacts")}</Link></li>
-            <li><Link to="/test">{t("sidebar.test")}</Link></li>
-          </ul>
-        </nav>
+    <LayoutContainer>
+      <Sidebar>
+        <Logo>VseTV</Logo>
+        <Nav>
+          <NavList>
+            <NavItem>
+              <NavLink to="/dashboard">{t("sidebar.dashboard")}</NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink to="/profile">{t("sidebar.profile")}</NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink to="/tv-channels">{t("sidebar.channels")}</NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink to="/contacts">{t("sidebar.contacts")}</NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink to="/test">{t("sidebar.test")}</NavLink>
+            </NavItem>
+          </NavList>
+        </Nav>
+        <LogoutButton>{t("sidebar.logout")}</LogoutButton>
+      </Sidebar>
 
-        <button className="logout-button">{t("logout")}</button>
-      </aside>
-
-      <div className="main-content">
-      {/* in the future, a new component (header) */}
-        <header className="header">
-
-          <h1>Назва компанії</h1> 
-          {/* component (language switcher) */}
-          <select className="language-switcher" onChange={handleLanguageChange} defaultValue={i18n.language}>
-          <option value="en">English</option>
-          <option value="uk">Українська</option>
-        </select>
-        {/* component (theme switcher) */}
-        <div>Switcher theme</div>
-        </header>
-        <main>
-          <Outlet /> 
-        </main>
-      </div>
-    </div>
+      <MainContent>
+        <Header>
+          <h1>Назва компанії</h1>
+          <LanguageSwitcher
+            onChange={handleLanguageChange}
+            defaultValue={i18n.language}
+          >
+            <option value="en">English</option>
+            <option value="uk">Українська</option>
+          </LanguageSwitcher>
+          <div>Switcher theme</div>
+        </Header>
+        <Main>
+          <Outlet />
+        </Main>
+      </MainContent>
+    </LayoutContainer>
   );
 };
 
